@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurankulakNumbers", "DurankulakNumbers\DurankulakNumbers.csproj", "{4BEE007C-3C60-444D-A435-5058B952EAA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurankulakNumbersTests", "DurankulakNumbersTests\DurankulakNumbersTests.csproj", "{B4C65509-70FA-40A5-968E-8C583D2BBDA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BEE007C-3C60-444D-A435-5058B952EAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BEE007C-3C60-444D-A435-5058B952EAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BEE007C-3C60-444D-A435-5058B952EAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BEE007C-3C60-444D-A435-5058B952EAA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4C65509-70FA-40A5-968E-8C583D2BBDA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C65509-70FA-40A5-968E-8C583D2BBDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C65509-70FA-40A5-968E-8C583D2BBDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C65509-70FA-40A5-968E-8C583D2BBDA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
