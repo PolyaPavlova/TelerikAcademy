@@ -1,4 +1,4 @@
-Christmas tree
+Problem 3 - Fir Tree
 ====================
 
 Christmas Eve is coming so even programmers got to prepare!
