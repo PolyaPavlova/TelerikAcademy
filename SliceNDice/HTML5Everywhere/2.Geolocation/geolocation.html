@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Geolocation</title>
+    <title>Geolocation - HTML5Everywhere 2/3</title>
     <style>
         #map-div {
 
@@ -9,19 +9,23 @@
             height: 500px;
         }
 
-    </style>
-    
-    
-
+    </style>      
 </head>
 <body>
 
-    
-    <div id="map-div"><img src="loading_spinner.gif" id="loading-spinner" /></div>
+    <p>Make a web page that detects the current geolocation. The web page should work fine in all desktop browsers, including IE7</p>
+        
+    <div id="map-div">
+        
+        <!-- Using loading spinner for UI and cathing "Not now" -->
+        <img src="loading_spinner.gif" id="loading-spinner" />
+
+    </div>
     
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script> 
-    <script src="geoPosition.js"></script>    
+    <!-- In order to make geolocation works in versions less than IE9, we use geoposition -->
+    <script src="geoPosition.js"></script>
     <script src="geolocation.js"></script>
 </body>
 </html>
