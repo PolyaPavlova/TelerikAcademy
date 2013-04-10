@@ -49,7 +49,13 @@ function notNowException(position) {
 
 
 function handleError(err) {
-    alert(JSON.stringify(err));
+
+    switch (err.code) {
+
+        case 1: alert("Permission denied"); break;
+        case 2: alert("Postion unavailable"); break;
+        case 3: alert("Timeout"); break;
+    }
 }
 
 
