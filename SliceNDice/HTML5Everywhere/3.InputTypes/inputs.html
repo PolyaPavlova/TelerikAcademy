@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Input types - HTML5Everywhere 3/3</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="modernizr.custom.63458.js"></script>
+
+    <!-- Polyfill for multiple input types -->
+    <script src="js-webshim/minified/polyfiller.js"></script>
+    <script>  $.webshims.polyfill(); </script>  
+    
+    <!-- Polyfill for color type -->
+    <link rel="stylesheet" media="screen" type="text/css" href="colorpicker/css/colorpicker.css" />
+    <script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
+
+    <!-- Polyfill for week type -->
+    <script src="week-polyfill-master/week-polyfill.min.js"></script>
+    
+    <!-- Polyfill for datetime type -->
+    <script src="datetime-polyfill.js"></script>
+    
+    <!-- Needed for week and datetime polyfills ui -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery.ui.all.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>       
+    <style>        
+        /* JUST PRETTY */
+
+        body {
+            background: #eee;
+        }
+
+        p {
+            font-size: 16px;
+            font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 10px 10px;
+            margin: 5px 5px;
+            width: 895px;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            height: 16px;
+			width: 50%;
+        }
+
+        .ui-widget-content {
+            border: none;
+            background: none;
+        }
+
+        .box-wrapper {
+            width: 200px;
+            height: 100px;
+            float: left;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 5px;
+            background: #fff;
+        }
+
+        .box {
+            position: relative;
+            text-align: center;
+            top: 40%;
+        }
+
+        button, input[type=button] {
+            border: 1px solid #ccc;
+            padding: 2px;
+			width: 80%;
+        }
+        .search:after {
+            content: "\00a0";
+            padding: 0 7px;
+            display: inline;
+            background: #ccc url(search.png) 0 2px no-repeat;            
+            margin-left: -5px;
+            padding-bottom: 1px;
+            position: relative;                                    
+            border-radius: 0 5px 5px 0;          
+        }
+
+        /* /JUST PRETTY */
+
+        /* VALIDATION */
+        input:invalid {
+            background: #f5bdbd;
+        }
+
+        .invalid {
+            background: #f5bdbd;
+        }
+        /* /VALIDATION */
+        
+    </style>
+
+    
+</head>
+<body>
+
+    <p>3. Create a web page that contains the following input types
+range, number, email, date, color, datetime, month, search, tel, time, url, week</p>
+    <p>And it must work on all desktop browsers (IE7+)</p>
+
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Range: <input type="range" /> 
+        </div>
+    </div>
+    
+    <div class="box-wrapper">         
+        <div class="box">
+            Number: <input type="number" /> 
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Email: <input type="email" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" title="Email"/>
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Date: <input type="date" />
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Color: <input type="color" /> 
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Datetime: <input type="datetime" /> 
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Month: <input type="month" />
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box search">
+            Search: <input type="search" /> 
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Tel: <input type="tel" pattern="(\+?([0-9]+))\b"/ title="Format +359846" id="tel1"/>
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Week: <input type="week" /> 
+        </div>
+    </div>
+
+    <div class="box-wrapper">         
+        <div class="box">
+            Time: <input type="time" /> 
+        </div>
+    </div>
+
+
+    <div class="box-wrapper">         
+        <div class="box">
+            URL: <input type="url"/> 
+        </div>
+    </div>
+
+    
+    <!-- COLORPICKER http://www.eyecon.ro/colorpicker/ -->
+    <script>
+
+        var initColorpicker = function () {
+
+            $('input[type=color]').each(function () {
+                var $input = $(this);
+                $input.ColorPicker({
+                    onSubmit: function (hsb, hex, rgb, el) {
+                        $(el).val(hex);
+                        $(el).ColorPickerHide();
+                    }
+                });
+            });
+        };
+
+        if (!Modernizr.inputtypes.color) {
+            $(document).ready(initColorpicker);
+        };
+    </script>
+
+
+    <!-- Didn't work for me, but worth checking -> http://selectivizr.com/ -->
+
+
+    <!-- Making pseudo classes :invalid and :valid work in IE -->
+    <!--[if (lte IE 9)]> 
+    <script>
+
+        var inputs = document.getElementsByTagName("input");
+
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].attachEvent("onmouseover", invalidPseudoClassSupport);
+            inputs[i].attachEvent("onmouseout", invalidPseudoClassSupport);
+            inputs[i].attachEvent("onkeyup", invalidPseudoClassSupport);
+        }
+        
+
+        function invalidPseudoClassSupport() {
+            
+            $("input:valid").removeClass("invalid");
+            $("input:invalid").addClass("invalid");
+            
+        }
+        
+        $(function () {
+            $("input:invalid").addClass("invalid");
+        });
+
+        </script>
+     <![endif]--> 
+    </body>
+</html>
